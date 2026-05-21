@@ -26,6 +26,14 @@ app.get("/health", (req, res) => {
     });
 });
 
+app.get("/checking-route",(req,res)=>{
+    res.json({
+        status: "ok",
+        time: new Date().toISOString()
+    });
+    res.write("Checking");
+})
+
 app.get("/check-ios-update", checkUpdate);
 
 app.listen(3000, () => console.log("Server running"));
