@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx my_backend test",
+    "test": "npx playwright test",
     "done": "node ./index.js"
   },
   "keywords": [],
