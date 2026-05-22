@@ -39,7 +39,7 @@ app.get("/adding-test",(req,res)=>{
         status: "ok",
         time: new Date().toISOString()
     });
-    res.write("Checking another chekcing another change");
+    res.write("Changing Test");
 })
 
 app.get("/check-ios-update", checkUpdate);
