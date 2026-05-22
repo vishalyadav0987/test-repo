@@ -19,6 +19,10 @@ cron.schedule("*/5 * * * *", async () => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.status(200).send({ status: "healthy", message: "Environment is alive!" });
+});
+
 app.get("/health", (req, res) => {
     res.json({
         status: "ok",
