@@ -39,7 +39,7 @@ app.get("/adding-test",(req,res)=>{
         status: "ok",
         time: new Date().toISOString()
     });
-    res.write("Changing Test rebuild new image test - 1");
+    res.write("Install the playwrite test dependency test - 2");
 })
 
 app.get("/check-ios-update", checkUpdate);
