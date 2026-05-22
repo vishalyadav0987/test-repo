@@ -31,7 +31,7 @@ app.get("/checking-route",(req,res)=>{
         status: "ok",
         time: new Date().toISOString()
     });
-    res.write("Checking another chekcing");
+    res.write("Checking another chekcing another change");
 })
 
 app.get("/check-ios-update", checkUpdate);
