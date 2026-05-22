@@ -34,6 +34,14 @@ app.get("/checking-route",(req,res)=>{
     res.write("Checking another chekcing another change");
 })
 
+app.get("/adding-test",(req,res)=>{
+    res.json({
+        status: "ok",
+        time: new Date().toISOString()
+    });
+    res.write("Checking another chekcing another change");
+})
+
 app.get("/check-ios-update", checkUpdate);
 
 app.listen(3000, () => console.log("Server running"));
