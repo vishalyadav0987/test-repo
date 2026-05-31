@@ -2,13 +2,13 @@ version: "3.8"
 services:
   app:
     build: .
-    container_name: pr-${PR_NUMBER}-backend
+    container_name: ${DEPLOYMENT_ID}-backend
     environment:
-      - PR_NUMBER=${PR_NUMBER}
+      - DEPLOYMENT_ID=${DEPLOYMENT_ID}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.pr-${PR_NUMBER}.rule=Host(`pr-${PR_NUMBER}.localhost`)
-      - traefik.http.services.pr-${PR_NUMBER}.loadbalancer.server.port=3000
+      - traefik.http.routers.${DEPLOYMENT_ID}.rule=Host(`${DEPLOYMENT_ID}.localhost`)
+      - traefik.http.services.${DEPLOYMENT_ID}.loadbalancer.server.port=3000
     networks:
       - orchestrator-net
 networks:
