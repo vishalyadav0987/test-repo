@@ -1,14 +1,16 @@
 version: "3.8"
 services:
-  app:
+  backend:
     build: .
     container_name: ${DEPLOYMENT_ID}-backend
     environment:
       - DEPLOYMENT_ID=${DEPLOYMENT_ID}
+      - FRONTEND_URL=http://${DEPLOYMENT_ID}.localhost
     labels:
       - traefik.enable=true
-      - traefik.http.routers.${DEPLOYMENT_ID}.rule=Host(`${DEPLOYMENT_ID}.localhost`)
-      - traefik.http.services.${DEPLOYMENT_ID}.loadbalancer.server.port=3000
+      - traefik.docker.network=ephemeral-orchestrator_default
+      - traefik.http.routers.${DEPLOYMENT_ID}-api.rule=Host(`${DEPLOYMENT_ID}.localhost`)
+      - traefik.http.services.${DEPLOYMENT_ID}-api.loadbalancer.server.port=3000
     networks:
       - orchestrator-net
 networks:
