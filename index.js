@@ -19,12 +19,32 @@ cron.schedule("*/5 * * * *", async () => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.status(200).send({ status: "healthy", message: "Environment is alive!" });
+});
+
 app.get("/health", (req, res) => {
     res.json({
         status: "ok",
         time: new Date().toISOString()
     });
 });
+
+app.get("/checking-route",(req,res)=>{
+    res.json({
+        status: "ok",
+        time: new Date().toISOString()
+    });
+    res.write("Checking another chekcing another change");
+})
+
+app.get("/adding-test",(req,res)=>{
+    res.json({
+        status: "ok",
+        time: new Date().toISOString()
+    });
+    res.write("Install the playwrite test dependency test - 42");
+})
 
 app.get("/check-ios-update", checkUpdate);
 

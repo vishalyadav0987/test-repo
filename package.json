@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1 ",
+    "test": "npx playwright test",
     "done": "node ./index.js"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "winston": "^3.19.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@types/node": "^25.6.2",
     "typescript": "^6.0.3"
   }
